@@ -1,11 +1,8 @@
 # N: 점의 개수 
 N = int(input())
 
-lst = []
-for _ in range(N):
-  point = tuple(map(int, input().split()))
-  lst.append(point)
+position = [list(map(int, input().split())) for _ in range(N)]
 
-lst.sort()
-for i in range(N):
-  print(*lst[i])
+position.sort(key = lambda x : (x[0], x[1]))
+for it in position:
+  print(*it)

@@ -1,13 +1,17 @@
-p = 'IO' * int(input())+'I'
-s_len = int(input())
-s = input()
-cnt = 0
+import sys
+p = int(sys.stdin.readline())
+s_len = int(sys.stdin.readline())
+s = sys.stdin.readline()
 
-for i in range(s_len - len(p)+1):
-    if s[i] == 'I':
-        for j in range(1, len(p)):
-            if p[j] != s[i+j]:
-                break
-        else :
-            cnt += 1
-print(cnt)
+i, cnt, result = 0, 0, 0
+while i < (s_len-1):
+    if s[i:i+3] == "IOI":
+        cnt += 1
+        i += 2
+        if cnt == p:
+            result += 1
+            cnt -= 1
+    else:
+        i += 1
+        cnt = 0
+print(result)

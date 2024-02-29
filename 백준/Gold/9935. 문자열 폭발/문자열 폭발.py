@@ -1,6 +1,6 @@
 import sys
 
-words = list(sys.stdin.readline().strip())
+words = sys.stdin.readline().strip()
 bomb = sys.stdin.readline().strip()
 len_words = len(words)
 len_bomb = len(bomb)

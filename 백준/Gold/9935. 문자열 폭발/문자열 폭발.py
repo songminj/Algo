@@ -7,11 +7,9 @@ len_bomb = len(bomb)
 stack = []
 for i in range(len(words)):
     stack.append(str(words[i]))
-
-    if len(stack) >= len_bomb:
-        if ''.join(stack[-len_bomb:]) == bomb:
-            for i in range(len_bomb):
-                stack.pop()
+    if ''.join(stack[-len_bomb:]) == bomb:
+        for _ in range(len_bomb):
+            stack.pop()
 else:
     if len(stack) == 0:
         stack = 'FRULA'

@@ -2,17 +2,12 @@
 # 1부터 n까지중에 m개 뽑음
 n, m = map(int, input().split())
 
-digits = list(range(1, n+1))
-
 def perm(start, m, lst):
     if len(lst) == m:
         print(*lst)
         return
     # 1부터 n까지 탐색
     for i in range(start, n+1):
-        lst.append(i)
-        perm(i, m, lst)
-        lst.pop()
+        perm(i, m, lst+[i])
 
 perm(1, m, [])
-

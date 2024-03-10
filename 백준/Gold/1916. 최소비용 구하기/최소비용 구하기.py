@@ -3,9 +3,9 @@ import heapq
 
 # n : 도시개수
 n = int(sys.stdin.readline())
-
+INF = 1e8
 def dijk(adj_dic, start, end):
-    d = {i : float('inf') for i in range(1, n+1)}
+    d = {i : INF for i in range(1, n+1)}
     d[start] = 0
     queue = []
     heapq.heappush(queue, [d[start], start])    # 시작노드부터 탐색을 시작할것임

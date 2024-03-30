@@ -7,4 +7,4 @@ tmp = 0
 for i in range(n):
     tmp += (ord(string[i])-96) * (31**i)
 
-print(tmp)
+print(tmp%1234567891)

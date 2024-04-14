@@ -15,7 +15,4 @@ while True:
     if n == 0:
         break
     cnt = 0
-    for i in range(n+1, 2*n+1):
-        if prime[i]:
-            cnt += 1
-    print(cnt)
+    print(prime[n+1:2*n+1].count(True))

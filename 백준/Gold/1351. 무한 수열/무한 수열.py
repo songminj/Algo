@@ -1,16 +1,14 @@
 # 1351번 무한 수열
-# idea : DP문제,, 수학문제?
+# 자료구조와 dp를 적절히 섞어서 
 
 import sys
-from collections import defaultdict
 input = sys.stdin.readline
 
 N, P, Q = map(int, input().split())
-nums = defaultdict(int)
-nums[0] = 1
+nums = {0:1}
 
 def fib(n):
-    if nums[n] !=0:
+    if n in nums:
         return nums[n]
     nums[n] = fib(n//P) + fib(n//Q)
     return nums[n]

@@ -5,7 +5,7 @@ using namespace std;
 
 long long binary(long long s, long long e, vector<int>& T, int N, int M) {
     while (s <= e) {
-        long long mid = s + (e - s) / 2;
+        long long mid = (s + e) / 2;
         long long checked = 0;
         for (int i = 0; i < N; i++) {
             checked += mid / T[i];

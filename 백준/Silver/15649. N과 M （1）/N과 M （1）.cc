@@ -1,29 +1,25 @@
 #include <iostream>
-#include <vector>
 
 using namespace std;
 
 int N, M;
-vector<int> v;
-vector<bool> visited;
+int v[8];
+bool visited[8];
 
-void backTracking(int depth) {
-	if (depth == M) {
-		for (int i = 0; i < M; i++) {
+void backTracking(int idx) {
+	if (idx == M) {
+		for (int i = 0; i < idx; i++) {
 			cout << v[i] << " ";
 		}
-		cout << endl;
+		cout << "\n";
 		return;
 	}
-	for (int i = 1; i <= N; i++) {
-		if (!visited[i]) {
-			visited[i] = true;
-			v.push_back(i);
-			backTracking(depth+1);
-			v.pop_back();
-			visited[i] = false;
-		}
-
+	for (int i = 0; i < N; i++) {
+		if (visited[i]) continue;
+		visited[i] = true;
+		v[idx] = i + 1;
+		backTracking(idx + 1);
+		visited[i] = false;
 	}
 }
 
@@ -33,7 +29,6 @@ int main() {
 	cout.tie(0);
 
 	cin >> N >> M;
-	visited.resize(N + 1, false);
 	backTracking(0);
 	return 0;
 }

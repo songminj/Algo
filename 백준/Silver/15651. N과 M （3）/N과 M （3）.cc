@@ -24,6 +24,9 @@ void backTracking(int idx) {
 
 
 int main() {
+	cin.tie(0);
+	cout.tie(0);
+	ios::sync_with_stdio(0);
 	cin >> N >> M;
 	backTracking(0);
 	return 0;

@@ -31,7 +31,7 @@ int main() {
 		if (min_v > cost[i]) {
 			min_v = cost[i];
 		}
-		ans += (min_v * road[i]);
+		ans += ((long long)min_v * (long long)road[i]);
 	}
 	
 	cout << ans;

@@ -1,17 +1,16 @@
 import sys
-
 input = sys.stdin.readline
 
-n, m = map(int, input().split())
-digits = sorted(list(map(int, input().split())))
+N, M = map(int, input().strip().split())
+arr = list(map(int, input().strip().split()))
+arr.sort()
 
-def perm(idx, res):
-    if idx == m:
-        print(' '.join(res))
+def nm(val, cnt):
+    if cnt == M:
+        print(' '.join(val))
         return
-    for i in range(n):
-        res.append(str(digits[i]))
-        perm(idx+1, res)
-        res.pop()
+    for i in range(N):
+        nxt = val + [str(arr[i])]
+        nm(nxt, cnt +1)
 
-perm(0, [])
+nm([], 0)

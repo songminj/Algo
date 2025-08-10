@@ -1,17 +1,14 @@
-def dfs(result, i):
-    # 조합의 길이가 M이 되면 결과에 추가
-    if len(result) == M:
-        print(*result)
+import sys
+input = sys.stdin.readline
+
+N, M = map(int, input().strip().split())
+
+def nm(val, cnt):
+    if cnt == M:
+        print(*val)
         return
+    for i in range(1, N+1):
+        nxt = val + [i]
+        nm(nxt, cnt +1)
 
-    # 가능한 모든 선택지에 대해 탐색
-    for w in range(1, N + 1):
-        # 현재 수를 선택하고 다음 위치로 이동
-        dfs(result + [w], i+1)
-
-
-# 입력 받기
-N, M = map(int, input().split())
-
-# DFS로 순열 구하기
-dfs([], 1)
+nm([], 0)

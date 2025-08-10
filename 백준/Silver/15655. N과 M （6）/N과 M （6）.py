@@ -1,12 +1,17 @@
-# n과 m (6)
+import sys
+input = sys.stdin.readline
 
-n, m = map(int, input().split())
-digits = sorted(list(map(int, input().split())))
+N, M = map(int, input().strip().split())
+arr = list(map(int, input().strip().split()))
+arr.sort()
 
-def perm(start, lst):
-    if len(lst) == m:
-        print(' '.join(lst))
-    for i in range(start, n):
-        perm(i+1, lst + [str(digits[i])])
+def nm(val, cnt, idx):
+    if cnt == M:
+        print(*val)
+        return
+    for i in range(idx, N):
+        if arr[i] not in val:
+            nxt = val + [arr[i]]
+            nm(nxt, cnt +1, i+1)
 
-perm(0, [])
+nm([], 0, 0)

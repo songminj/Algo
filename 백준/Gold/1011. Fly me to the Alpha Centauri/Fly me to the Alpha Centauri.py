@@ -1,22 +1,21 @@
-import sys
-input = sys.stdin.readline
+T = int(input()) 
 
-T = int(input())
+for i in range(T):
+  x, y = map(int, input().split()) #출발 및 도착 지점
 
-def alpha_centauri(x: int, y: int):
-    dist = y - x
-    moved = 0
-    cnt = 0
-    repeatable = 0
+  d = y - x #거리
 
-    while moved < dist:
-        cnt += 1
-        if cnt % 2 == 1:
-            repeatable +=1
-        moved += repeatable
+  n = 0
 
-    return cnt
-
-for _ in range(T):
-    x, y = map(int, input().strip().split())
-    print(alpha_centauri(x, y))
+  while True:
+    if d <= n*(n+1):
+      break
+    n += 1
+  
+#총 이동 거리가 n의 제곱보다 작거나 같을 때
+  if d <= n**2:
+    print(n*2-1)
+ 
+#총 이동 거리가 n의 제곱보다 클 때
+  else:
+    print(n*2)
